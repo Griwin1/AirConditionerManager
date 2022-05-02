@@ -1,0 +1,61 @@
+﻿
+@model IEnumerable<AirConditionerManager.Models.Request>
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Request List</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Request" asp-action="Create" class="btn btn-primary">Create new request</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Request Name
+                    </th>
+                    <th>
+                        Request Description
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Date of tech visiting
+                    </th>
+                    <th>
+                        Current Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var request in Model)
+                {
+                <tr>
+                    <td width="18%">@request.RequestName</td>
+                    <td width="18%">@request.RequestDescription</td>
+                    <td width="18%">@request.Address</td>
+                    <td width="18%">@request.DateOfTechVisiting</td>
+                    <td width="15%">@request.Status</td>
+                    <td width="13%">
+                        <div class="w-100 btn-group" role="group">
+                            <a asp-controller="Request" asp-action="Edit" asp-route-Id="@request.RequestId" class="btn btn-primary mx-1">Edit</a>
+                            <a asp-controller="Request" asp-action="Delete" asp-route-Id="@request.RequestId" class="btn btn-danger mx-1">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No expenses created yet</p>
+    }
+</div>
+
+

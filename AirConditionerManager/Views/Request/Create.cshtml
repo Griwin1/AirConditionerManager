@@ -1,0 +1,71 @@
+﻿@model AirConditionerManager.Models.Request
+<form method="post" asp-action="Create">
+    <div class="border p-3">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3">Add Request</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label asp-for="RequestName"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="RequestDescription"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Address"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="DateOfTechVisiting"></label>
+                    </div>
+                    <div class="col-4">
+                        <label asp-for="Status"></label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <input asp-for="RequestName" class="form-control" />
+                        <span asp-validation-for="RequestName" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="RequestDescription" class="form-control" />
+                        <span asp-validation-for="RequestDescription" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="DateOfTechVisiting" class="form-control" />
+                        <span asp-validation-for="DateOfTechVisiting" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <input asp-for="Status" class="form-control" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <div class="col">
+                            <input type="submit" class="btn btn-info w-75" value="Create" />
+                        </div>
+                        <div class="col">
+                            <a asp-action="Index" class="btn btn-danger w-75">Back</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
+
